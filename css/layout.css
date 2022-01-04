@@ -1,0 +1,61 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrapper {
+	width: 100%;
+}
+
+#main {
+	width: 100%;
+	max-width: 1000px;
+	min-width: 600px;
+	
+	margin: auto;
+}
+
+#header {
+	height: 250px;
+	position: relative;
+}
+
+#header h1 {
+	display: block;
+	padding: 10px 30px;
+	font-size: 64pt;
+	position: absolute;
+	left: 50px;
+	top: 40px;
+}
+#header nav {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+}
+
+#header nav a {
+	flex: 1 1 25%;
+	display: block;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+
+#content{
+	padding: 5px 15px;
+}
+#content ul, #content ol{
+	margin-left: 20px;
+}
+#content>ul, #content>ol{
+	margin: 10px 0 5px 20px;
+}
+
+#content h2, #content h3, #content h4 {
+	margin: 10px 0 5px 0; 
+}
+
+#content p {
+	margin-bottom: 5px;
+}

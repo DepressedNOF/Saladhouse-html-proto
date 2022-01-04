@@ -1,0 +1,14 @@
+
+* {
+  font-family: "Lucida Sans Unicode", "Arial", "sans-serif";
+}
+
+#header {
+  background-image: url("../img/style/common/header.jpg");
+  background-size: 100%;
+  background-position: center center;
+}
+
+#header h1 {
+	background-color: rgba(255,255,256,0.7)
+}

@@ -1,14 +1,60 @@
 
 * {
-  font-family: "Lucida Sans Unicode", "Arial", "sans-serif";
+	font-family: "Lucida Sans Unicode", "Arial", "sans-serif";
+}
+
+:root {
+	background-color: var(--color-bg, white);
+}
+
+p, h1, h2, h3, h4, h5, h6, li{
+	color: var(--color-text, black);
 }
 
 #header {
-  background-image: url("../img/style/common/header.jpg");
-  background-size: 100%;
-  background-position: center center;
+	background-image: url("../img/style/common/header.jpg");
+	background-size: 100%;
+	background-position: center center;
 }
 
 #header h1 {
-	background-color: rgba(255,255,256,0.7)
+	background-color: var(--color-bandage, rgba(255,255,255,0.7));
+}
+
+nav a {
+	background-image: linear-gradient(var(--color-bg, white) 30%, var(--color-content-bg, rgb(250,250,250)));
+	border: 1px solid var(--color-border, black);
+	border-right: none;
+}
+nav a:last-child {
+	border-right: 1px solid var(--color-border, black);
+}
+
+nav a:hover {
+    
+}
+
+#content {
+	background-color: var(--color-content-bg, rgb(250,250,250));
+	border: 1px solid var(--color-border, black);
+	border-top: none;
+	border-bottom: none;
+	box-shadow: inset 0 0 30px 3px
+}
+
+#content a, #footer a {
+	color: var(--color-link, blue);
+	text-decoration: underline dotted;
+}
+
+#content a:hover, #footer a:hover {
+	color: var(--color-link-hover, dodgerblue);
+}
+
+
+#footer {
+	background-color: var(--color-footer-bg, rgb(220,220,220));
+	border: 1px solid var(--color-border, black);
+	border-top: none;
+	border-bottom: none;
 }

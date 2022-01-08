@@ -1,0 +1,20 @@
+:root {
+	/*
+		pallet
+		rgb(204, 54, 16);
+		rgb(255, 141, 0);
+		rgb(35, 8, 2);
+		rgb(70, 0, 0);
+		rgb(219, 176, 0);
+	*/
+	--color-bg: rgb(35, 8, 2);
+	--color-content-bg:	rgb(70, 0, 0);;
+	--color-footer-bg: rgb(45, 0, 0);
+	--color-text: rgb(210,210,230);
+	--color-link: rgb(204, 54, 16);
+	--color-link-hover: rgb(219, 176, 0);
+	--color-link-visited: ;
+	--color-bandage: rgba(18,15,10, 0.7);
+	--color-border: rgb(204, 54, 16);
+	--color-nav-link: 
+}

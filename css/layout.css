@@ -21,11 +21,11 @@
 
 #header h1 {
 	display: block;
-	padding: 10px 30px;
+	padding: 10px 30px 10px 90px;
 	font-size: 64pt;
 	position: absolute;
-	left: 50px;
-	top: 40px;
+	left: 0;
+	bottom: 40px;
 }
 #header nav {
 	position: absolute;
@@ -40,11 +40,14 @@
 	text-align: center;
 	height: 40px;
 	line-height: 40px;
+	box-sizing: border-box;
 }
 
 #content{
-	padding: 5px 15px;
+	padding: 5px 30px;
+	box-sizing: border-box;
 }
+
 #content ul, #content ol{
 	margin-left: 20px;
 }
@@ -58,4 +61,17 @@
 
 #content p {
 	margin-bottom: 5px;
+}
+
+#footer {
+	height: 40px;
+}
+
+#footer a {
+	padding: 0 6px 0 6px;
+}
+
+#footer p {
+	text-align: center;
+	line-height: 40px;
 }

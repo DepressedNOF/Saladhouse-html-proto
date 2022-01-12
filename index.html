@@ -40,6 +40,46 @@
 		<div class="overlay_wrapper">
 			<div class="overlay_box">
 				<div class="overlay_scrollbox">
+					<div>
+						<form>
+							<h2>Reservierung</h2>
+							<fieldset>
+								<legend>Grunddaten</legend>
+								<label for="name">Name</label>
+								<input type="text" name="name"/>
+								<label for="email">Email</label>
+								<input type="text" name="email"/>
+								<label for="gaeste">Anzahl der Gäste</label>
+								<input type="number" name="gaeste">
+								<input type="checkbox" name="barrierefrei">
+								<label for="barrierefrei">Barrierefreier Zugang benötigt</label>
+								<label for="date">Datum</label>
+								<input type="date" name="barrierefrei">
+								<label for="time">Uhrzeit</label>
+								<input type="time" name="time">
+								<label for="area">Bereich</label>
+								<select name="area">
+									<option value="outdoor">Aussenbereich</option>
+									<option value="garden">Wintergarten</option>
+									<option value="indoor">Innenbereich</option>
+									<option value="nopreference">Keine Präferenz</option>
+								</select>
+							</fieldset>
+							<fieldset>
+								<legend>Zusätzliche Angaben</legend>
+								<button type="button">Tisch Auswählen</button>
+								<input type="hidden" name="table">
+								<button type="button">Menu Auswählen</button>
+								<input type="hidden" name="menu">
+							</fieldset>
+							<input type="checkbox" name="agb">
+							<label for="agb">Ich stimme den <a href="agb.html">AGB</a>s und Datenschutzbestimmungen zu</label>
+							<input type="checkbox" name="2Gcontrol">
+							<label for="2Gcontrol">Ich stimme einer 2G+ Kontrolle vor Einlass zu</label>
+							<button type="reset">Abbrechen</button>
+							<button type="submit">Reservieren</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,26 @@
+.overlay_wrapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.overlay_box {
+	background-color: black;
+	display: block;
+	margin: auto;
+	padding: 20px;
+	max-height: 80vh;
+	max-width: 80vw;
+	overflow: hidden;
+	
+	border-radius: 20px;
+}
+
+.overlay_scrollbox{
+	max-height: inherit;
+	overflow-x: auto;
+}

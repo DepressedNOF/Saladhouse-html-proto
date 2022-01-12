@@ -16,5 +16,7 @@
 	--color-link-visited: ;
 	--color-bandage: rgba(18,15,10, 0.7);
 	--color-border: rgb(204, 54, 16);
-	--color-nav-link: 
+	--color-nav-link: ;
+	--color-overlay-bandage: rgba(0,0,0,0.7);
+	--color-overlay-box-bg: rgb(70,0,0);
 }

@@ -27,6 +27,9 @@
 				$(".overlay_wrapper .close_button").on("click", function(event){
 					$(this).parent().parent().removeClass("active");
 				});
+				$(".overlay_wrapper form button[type=\"reset\"]").on("click", function(event){
+					$(this).closest(".overlay_wrapper").removeClass("active");
+				});
 			})
 		</script>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->

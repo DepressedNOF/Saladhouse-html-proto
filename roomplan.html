@@ -15,27 +15,41 @@
 		<!-- ADDITIONAL SCRIPTS GO BETWEEN -->
 		<script src="js/jcanvas.min.js"></script>
 		<script>
-			var roomdata = {
+			/*var roomdata = {
 				"areawidth": 600,
 				"areaheight": 800,
 				"sections": [
 					{
 						"id": 0,
-						"name": "",
+						"name": "Aussenbereich",
+						"outline": [],
+						"features": [
+							{
+								"type": "door",
+								"direction": 0,
+								"x": 0,
+								"y": 0,
+								"isWC": false
+							},
+							{
+								"type": "window"
+							}
+						],
 						"tables": [
 							{
 								"x": 0,
 								"y": 0,
-								"xw": 0,
-								"yw": 0,
 								"seatsx": 2,
 								"seatsy": 0,
+								"joins": []
 							}
 						],
-						"tablejoins": []
+						"tablejoins": [],
 					}
 				]
 			}
+			$("#roomplan").width(roomdata["areawidth"]).height(roomdata["areaheight"]);
+			*/
 		</script>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->
 	</head>
@@ -53,7 +67,9 @@
 				</div>
 				<div id="content">
 					<!--EDIT CONTENT-->
-					<canvas id="roomplan"></canvas>
+					<div class="image_container">
+						<img src="img/content/restaurant/roomplan.png">
+					</div>
 					<!--/EDIT CONTENT-->
 				</div>
 				<div id="footer">

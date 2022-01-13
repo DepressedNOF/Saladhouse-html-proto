@@ -30,6 +30,12 @@
 				$(".overlay_wrapper form button[type=\"reset\"]").on("click", function(event){
 					$(this).closest(".overlay_wrapper").removeClass("active");
 				});
+				$("#table_button").on("click", function(event){
+					$("#roomplan_overlay").addClass("active");
+				});
+				$("#menu_button").on("click", function(event){
+					$("#menu_overlay").addClass("active");
+				})
 			})
 		</script>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->
@@ -90,7 +96,7 @@
 				<div class="close_button"></div>
 				<div class="overlay_scrollbox">
 					<div>
-						<form>
+						<form id="reservation_form">
 							<h2>Reservierung</h2>
 							<fieldset>
 								<legend>Grunddaten</legend>
@@ -135,9 +141,9 @@
 							</fieldset>
 							<fieldset>
 								<legend>Zusätzliche Angaben</legend>
-								<button type="button">Tisch Auswählen</button>
+								<button id="table_button" type="button">Tisch Auswählen</button>
 								<input type="hidden" name="table"><br>
-								<button type="button">Menu Auswählen</button>
+								<button id="menu_button" type="button">Menu Auswählen</button>
 								<input type="hidden" name="menu">
 							</fieldset>
 							<div class="tabular_container">
@@ -153,6 +159,55 @@
 							<button type="reset">Abbrechen</button>
 							<button type="submit">Reservieren</button>
 						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="roomplan_overlay" class="overlay_wrapper">
+			<div class="overlay_box">
+				<div class="close_button"></div>
+				<div class="overlay_scrollbox">
+					<div>
+						<img src="img/content/restaurant/roomplan.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="menu_overlay" class="overlay_wrapper">
+			<div class="overlay_box">
+				<div class="close_button"></div>
+				<div class="overlay_scrollbox">
+					<div>
+						<h2>Menü</h2>
+						<table>
+							<tr>
+								<td><img src="img/content/food/menu1.jpg" height=150 width=200></td>
+								<td><div class="menu_name">Salatname 1</div>
+									<div class="menu_text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+									<div class="menu_info"> 1, 3; vegetarisch</div>
+								</td>
+								<td><div class="menu_cost">5,99€</div></td>
+							</tr>
+							<tr>
+								<td><img src="img/content/food/menu2.jpg" height=150 width=200></td>
+								<td><div class="menu_name">Salatname 2</div>
+									<div class="menu_text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+									<div class="menu_info"> 2, 4; vegetarisch</div>
+								</td>
+								<td><div class="menu_cost">6,99€</div></td>
+							</tr>
+							<tr>
+								<td><img src="img/content/food/menu3.jpg" height=150 width=200></td>
+								<td><div class="menu_name">Salatname 3</div>
+									<div class="menu_text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+									<div class="menu_info"> 2, 3; vegetarisch</div>
+								</td>
+								<td><div class="menu_cost">4,20€</div></td>
+							</tr>
+						</table>
+						
+						<h3><div class="menu_info">Allergenliste:</div></h3>
+						<p><div class="menu_info">1)Nüsse, 2)Lactose, 3)Fruchtsäure, 4)Schalentiere</div></p>
 					</div>
 				</div>
 			</div>

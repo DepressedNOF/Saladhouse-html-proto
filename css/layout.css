@@ -63,6 +63,10 @@
 	margin-bottom: 5px;
 }
 
+#content table{
+	margin-bottom: 10px;
+}
+
 #footer {
 	height: 40px;
 }
@@ -74,4 +78,74 @@
 #footer p {
 	text-align: center;
 	line-height: 40px;
+}
+
+.image_container {
+	display: flex;
+	padding: 10px;
+	max-width: 100%;
+	margin: 10px 10px;
+}
+
+.image_container img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.half {
+	width: 50%;
+}
+
+.flex_container {
+	display: flex;
+	align-items: flex-start;
+}
+
+.tabular_container {
+	display: table;
+	width: 100%;
+}
+
+.tabular_row {
+	display: table-row;
+}
+
+.tabular_row > * {
+	display: table-cell;
+}
+
+form fieldset {
+	padding: 5px;
+	margin: 0 10px 10px 0;
+}
+
+form fieldset legend {
+	margin-left: 15px;
+	padding: 0 3px;
+}
+
+form label {
+	text-align: right;
+}
+
+form label.lcheckbox{
+	text-align: left;
+}
+
+form input, form select {
+	width: 90%;
+	margin: 5px;
+	padding: 3px;
+	box-sizing: border-box;
+	
+}
+
+form button {
+	margin: 10px;
+	padding: 5px;
+}
+
+form input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
 }

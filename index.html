@@ -13,6 +13,22 @@
 		<!-- /ADDITIONAL CSS GO BETWEEN -->
 		<script src="js/jquery-3.6.0.min.js"></script>
 		<!-- ADDITIONAL SCRIPTS GO BETWEEN -->
+		<script>
+			$(document).ready(function(){
+				$("#reservation").on("click", function(event){
+					event.preventDefault();
+					$("#reservation_overlay").addClass("active");
+				});
+				$(".overlay_wrapper").on("click", function(event){
+					$(this).removeClass("active");
+				}).children().on("click", function(event){
+					event.stopPropagation();
+				});
+				$(".overlay_wrapper .close_button").on("click", function(event){
+					$(this).parent().parent().removeClass("active");
+				});
+			})
+		</script>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->
 	</head>
 	<body>
@@ -29,32 +45,36 @@
 				</div>
 				<div id="content">
 					<!--EDIT CONTENT-->
-					<img src="img/content/restaurant/restaurant.jpeg" alt="Saladhouse from top">
-					<table>
-						<caption>
-							<b>Öffnungszeiten</b>
-						</caption>
-						<tr>
-							<td>Mo:</td>
-							<td>9:00-23:00</td>
-						</tr>
-						<tr>
-							<td>Di:</td>
-							<td>Geschlossen</td>
-						</tr>
-						<tr>
-							<td>Mi-Fr:</td>
-							<td>9:00-22:00</td>
-						</tr>
-						<tr>
-							<td>Sa-So:</td>
-							<td>10:00-23:00</td>
-						</tr>
-					</table>
+					<div class="flex_container">
+						<div class="image_container half">
+							<img src="img/content/restaurant/restaurant.jpeg" alt="Saladhouse from top">
+						</div>
+						<table class="half">
+							<caption>
+								<b>Öffnungszeiten</b>
+							</caption>
+							<tr>
+								<td>Mo:</td>
+								<td>9:00-23:00</td>
+							</tr>
+							<tr>
+								<td>Di:</td>
+								<td>Geschlossen</td>
+							</tr>
+							<tr>
+								<td>Mi-Fr:</td>
+								<td>9:00-22:00</td>
+							</tr>
+							<tr>
+								<td>Sa-So:</td>
+								<td>10:00-23:00</td>
+							</tr>
+						</table>
+					</div>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Cras tincidunt lobortis feugiat vivamus at. Accumsan tortor posuere ac ut consequat semper viverra nam. Interdum varius sit amet mattis vulputate enim. Facilisis sed odio morbi quis commodo odio. Tempus iaculis urna id volutpat. Cras tincidunt lobortis feugiat vivamus at augue. Gravida rutrum quisque non tellus orci ac auctor augue. Egestas fringilla phasellus faucibus scelerisque. Ullamcorper malesuada proin libero nunc consequat. Scelerisque fermentum dui faucibus in ornare quam. Egestas purus viverra accumsan in. Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Bibendum ut tristique et egestas. In ante metus dictum at tempor commodo ullamcorper a lacus. Amet porttitor eget dolor morbi non.
 					</p>
-					<a href="#">Jetzt Reservieren</a>
+					<a id="reservation" href="#">Jetzt Reservieren</a>
 					<!--/EDIT CONTENT-->
 				</div>
 				<div id="footer">
@@ -62,45 +82,71 @@
 				</div>
 			</div>
 		</div>
-		<div class="overlay_wrapper">
+		<div id="reservation_overlay" class="overlay_wrapper">
 			<div class="overlay_box">
+				<div class="close_button"></div>
 				<div class="overlay_scrollbox">
 					<div>
 						<form>
 							<h2>Reservierung</h2>
 							<fieldset>
 								<legend>Grunddaten</legend>
-								<label for="name">Name</label>
-								<input type="text" name="name"/>
-								<label for="email">Email</label>
-								<input type="text" name="email"/>
-								<label for="gaeste">Anzahl der Gäste</label>
-								<input type="number" name="gaeste">
-								<input type="checkbox" name="barrierefrei">
-								<label for="barrierefrei">Barrierefreier Zugang benötigt</label>
-								<label for="date">Datum</label>
-								<input type="date" name="barrierefrei">
-								<label for="time">Uhrzeit</label>
-								<input type="time" name="time">
-								<label for="area">Bereich</label>
-								<select name="area">
-									<option value="outdoor">Aussenbereich</option>
-									<option value="garden">Wintergarten</option>
-									<option value="indoor">Innenbereich</option>
-									<option value="nopreference">Keine Präferenz</option>
-								</select>
+								<div class="tabular_container">
+									<div class="tabular_row">
+										<label for="name">Name:</label>
+										<input type="text" name="name"/>
+									</div>
+									<div class="tabular_row">
+										<label for="email">Email:</label>
+										<input type="text" name="email"/>
+									</div>
+									<div class="tabular_row">
+										<label for="gaeste">Anzahl der Gäste:</label>
+										<input type="number" name="gaeste">
+									</div>
+									<div class="tabular_row">
+										<div class="tabular_cell"></div>
+										<div class="tabular_cell">
+											<input type="checkbox" name="barrierefrei">
+											<label class="lcheckbox" for="barrierefrei">Barrierefreier Zugang benötigt:</label>
+										</div>
+									</div>
+									<div class="tabular_row">
+										<label for="date">Datum:</label>
+										<input type="date" name="barrierefrei">
+									</div>
+									<div class="tabular_row">
+										<label for="time">Uhrzeit:</label>
+										<input type="time" name="time">
+									</div>
+									<div class="tabular_row">
+										<label for="area">Bereich:</label>
+										<select name="area">
+											<option value="outdoor">Aussenbereich</option>
+											<option value="garden">Wintergarten</option>
+											<option value="indoor">Innenbereich</option>
+											<option value="nopreference">Keine Präferenz</option>
+										</select>
+									</div>
+								</div>
 							</fieldset>
 							<fieldset>
 								<legend>Zusätzliche Angaben</legend>
 								<button type="button">Tisch Auswählen</button>
-								<input type="hidden" name="table">
+								<input type="hidden" name="table"><br>
 								<button type="button">Menu Auswählen</button>
 								<input type="hidden" name="menu">
 							</fieldset>
-							<input type="checkbox" name="agb">
-							<label for="agb">Ich stimme den <a href="agb.html">AGB</a>s und Datenschutzbestimmungen zu</label>
-							<input type="checkbox" name="2Gcontrol">
-							<label for="2Gcontrol">Ich stimme einer 2G+ Kontrolle vor Einlass zu</label>
+							<div class="tabular_container">
+								<div class="tabular_row">
+									<input type="checkbox" name="agb">
+									<label class="lcheckbox" for="agb">Ich stimme den <a href="agb.html">AGB</a> und Datenschutzbestimmungen zu.</label>
+								</div>
+								<div class="tabular_row">
+									<input type="checkbox" name="2Gcontrol">
+									<label class="lcheckbox" for="2Gcontrol">Ich stimme einer 2G+ Kontrolle vor Einlass zu.</label><br>
+								</div>
+							</div>
 							<button type="reset">Abbrechen</button>
 							<button type="submit">Reservieren</button>
 						</form>

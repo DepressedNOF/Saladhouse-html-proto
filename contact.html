@@ -28,7 +28,7 @@
 						<a href="index.html">Home</a>
 						<a href="menu.html">Men&uuml;</a>
 						<a href="roomplan.html">Roomplan</a>
-						<a href="contact.html">Kontakt</a>
+						<a href="contact.html"><h2>Kontakt</h2></a>
 					</nav>
 				</div>
 				<div id="content">
@@ -36,16 +36,28 @@
 					<h2>Kontaktdaten </h2>
 				  <p>Max Mustermannstraße 6</p>
 					<p>Musterstadt, 00000</p>
-					<p>05351/ 00 00 00</p>
 					<p>maxmustermann@muster.de</p>
+					<p>Sie können auch <a href="index.html">hier</a> online reservieren, oder telephonisch unter: 05351/000000</p>
 					<h2>Öffnungszeit</h2>
-					<p>Montag: 12-20 Uhr</p>
-					<p>Dienstag: Ruhetag</p>
-					<p>Mittwoch: 12-20 Uhr</p>
-					<p>Donnerstag: 12-20 Uhr</p>
-					<p>Freitag: 12-20 Uhr</p>
-					<p>Samstag: 12-18 Uhr</p>
-					<p>Sontag: 12-18 Uhr</p>
+					<table class="half">
+						<tr>
+							<td>Mo:</td>
+							<td>9:00-23:00 Uhr</td>
+						</tr>
+						<tr>
+							<td>Di:</td>
+							<td>Geschlossen</td>
+						</tr>
+						<tr>
+							<td>Mi-Fr:</td>
+							<td>9:00-22:00</td>
+						</tr>
+						<tr>
+							<td>Sa-So:</td>
+							<td>10:00-23:00</td>
+						</tr>
+					</table>
+
 					<h2>Kontaktformular </h2>
 					<h3><p>Name: <input name=“name“ size=“40″></p>
 							E-Mail: <input name=“email“ size=“40″><br />
@@ -57,8 +69,8 @@
 								<option>Sonstiges</option>
 							</select><br />
 							Nachricht: <br />
-							<textarea name=“text“ cols=“50″ rows=“10″></textarea><br />
-							<input name=“submit“ type=“submit“ value=“absenden“>
+							<textarea id="Nachricht" name=“Nachricht“ cols=“50″ rows=“10″></textarea></br>
+							<button> Absenden </button>
 							<div style=“clear:both;“></div>
 						</h3>
 					<!--/EDIT CONTENT-->

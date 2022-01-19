@@ -10,7 +10,7 @@
 	width: 100%;
 	max-width: 1000px;
 	min-width: 600px;
-	
+
 	margin: auto;
 }
 
@@ -43,6 +43,7 @@
 	box-sizing: border-box;
 }
 
+
 #content{
 	padding: 5px 30px;
 	box-sizing: border-box;
@@ -56,9 +57,13 @@
 }
 
 #content h2, #content h3, #content h4 {
-	margin: 10px 0 5px 0; 
+	margin: 10px 0 5px 0;
 }
 
+#content c {
+	color: #00BFFF; /* Gehört eigentlich in Visio rein*/
+	font-size: 20pt;
+}
 #content p {
 	margin-bottom: 5px;
 }
@@ -137,7 +142,7 @@ form input, form select {
 	margin: 5px;
 	padding: 3px;
 	box-sizing: border-box;
-	
+
 }
 
 form button {

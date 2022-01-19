@@ -3,20 +3,33 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- EDIT TITLE -->
-		<title>Template|Saladhouse</title>
+		<title>Kontakte|Saladhouse</title>
 		<!-- /EDIT TITLE -->
 		<link rel="stylesheet" href="css/layout.css">
 		<link rel="stylesheet" href="css/style_dark.css">
 		<link rel="stylesheet" href="css/visual.css">
 		<!-- ADDITIONAL CSS GO BETWEEN -->
+		
 		<!-- /ADDITIONAL CSS GO BETWEEN -->
 		<script src="js/jquery-3.6.0.min.js"></script>
 		<!-- ADDITIONAL SCRIPTS GO BETWEEN -->
 		<style>
 
+			form input, form select {
+				width: 40%;
+			}
 
+			label {
+				font-size: 20px;
+				font-weight: bold;
+				
+			}
 
-	</style>
+			textarea {
+				color: #000000;
+			}
+
+		</style>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->
 	</head>
 	<body>
@@ -59,20 +72,40 @@
 					</table>
 
 					<h2>Kontaktformular </h2>
-					<h3><p>Name: <input name=“name“ size=“40″></p>
-							E-Mail: <input name=“email“ size=“40″><br />
-							Betreff: <select name=“betreff“ size=“1″>
-								<option>Hilfe</option>
-								<option>Kritik</option>
-								<option>Linktausch</option>
-								<option>Werbung</option>
-								<option>Sonstiges</option>
-							</select><br />
-							Nachricht: <br />
-							<textarea id="Nachricht" name=“Nachricht“ cols=“50″ rows=“10″></textarea></br>
-							<button> Absenden </button>
-							<div style=“clear:both;“></div>
-						</h3>
+					
+					<form action="/action_page.php" >
+						<table>
+							<tr>
+								<td width="100"><label for="name">Name:</label></td>
+								<td width="1000"><input name=“name“ id="name" size="40" ></td>
+							</tr>
+							<tr>
+								<td><label for="e-mail">E-Mail:</label></td>
+								<td><input name=“email“ id="e-mail" size=“40″></td>
+							</tr>
+							<tr>
+								<td><label for="betreff">Betreff:</label></td>
+								<td><select name=“betreff“ id="betreff" size=“1″ length="40">
+									<option>Hilfe</option>
+									<option>Kritik</option>
+									<option>Linktausch</option>
+									<option>Werbung</option>
+									<option>Sonstiges</option>
+								</select></td>
+							</tr>
+						</table>
+						
+
+						<h3>Nachricht:</h3>
+							
+						<textarea id="Nachricht" name=“Nachricht“ cols=“50″ rows=“10″></textarea></br>
+							
+						
+						<button type="reset"> Absenden </button>
+					</form>
+					
+
+					
 					<!--/EDIT CONTENT-->
 				</div>
 				<div id="footer">

@@ -12,6 +12,8 @@
 		<!-- ADDITIONAL CSS GO BETWEEN -->
 		<!-- /ADDITIONAL CSS GO BETWEEN -->
 		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 		<!-- ADDITIONAL SCRIPTS GO BETWEEN -->
 		<script>
 			$(document).ready(function(){
@@ -38,6 +40,55 @@
 				})
 			})
 		</script>
+		<script>
+            $(document).ready(function() {
+				$("#reservation_form").on("submit",function(form) {
+    				if(!$("#agb").prop("checked")) {
+        				$("#agb_check_err").show();
+					} else {
+        				$("#agb_check_err").hide();
+					}
+
+					if(!$("#2Gcontrol").prop("checked")) {
+        				$("#2G_check_err").show();
+					} else {
+        				$("#2G_check_err").hide();
+					}
+    				return false;
+				});
+
+                $("#reservation_form").validate({
+                    rules: {
+                        'name': {
+                            required: true,
+                        },
+                        'email': {
+                            required: true,
+                        },
+                        'gaeste':{
+                            required: true,
+                        },
+						'date':{
+                            required: true,
+                        },
+						'time':{
+                            required: true,
+                        },
+						'area':{
+                            required: true,
+                        }
+                    },
+                    messages: {
+                        'name': "Bitte geben Sie ihren Namen an",
+                        'email': "Bitte geben sie eine valide Email Adresse an",
+                        'gaeste': "Bitte wählen Sie die Anzahl der Gäste",
+						'date': "Bitte wählen Sie einen Datum",
+						'time': "Bitte wählen Sie eine Uhrzeit",
+						'area': "Bitte wählen Sie einen Bereich aus",
+                    }
+                });
+            });
+        </script>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->
 	</head>
 	<body>
@@ -103,34 +154,35 @@
 								<div class="tabular_container">
 									<div class="tabular_row">
 										<label for="name">Name:</label>
-										<input type="text" name="name"/>
+										<input type="text" id="name" name="name"/>
 									</div>
 									<div class="tabular_row">
 										<label for="email">Email:</label>
-										<input type="text" name="email"/>
+										<input type="text" id="email" name="email"/>
 									</div>
 									<div class="tabular_row">
 										<label for="gaeste">Anzahl der Gäste:</label>
-										<input type="number" name="gaeste">
+										<input type="number" id="gaeste" name="gaeste">
 									</div>
 									<div class="tabular_row">
 										<div class="tabular_cell"></div>
 										<div class="tabular_cell">
-											<input type="checkbox" name="barrierefrei">
-											<label class="lcheckbox" for="barrierefrei">Barrierefreier Zugang benötigt:</label>
+											<input type="checkbox" id="barrierefrei" name="barrierefrei">
+											<label class="lcheckbox" for="barrierefrei">Barrierefreier Zugang benötigt</label>
 										</div>
 									</div>
 									<div class="tabular_row">
 										<label for="date">Datum:</label>
-										<input type="date" name="barrierefrei">
+										<input type="date" id="date" name="date">
 									</div>
 									<div class="tabular_row">
 										<label for="time">Uhrzeit:</label>
-										<input type="time" name="time">
+										<input type="time" id="time" name="time">
 									</div>
 									<div class="tabular_row">
 										<label for="area">Bereich:</label>
-										<select name="area">
+										<select id="area" name="area">
+											<option value="">---</option>
 											<option value="outdoor">Aussenbereich</option>
 											<option value="garden">Wintergarten</option>
 											<option value="indoor">Innenbereich</option>
@@ -148,12 +200,18 @@
 							</fieldset>
 							<div class="tabular_container">
 								<div class="tabular_row">
-									<input type="checkbox" name="agb">
+									<input type="checkbox" id="agb" name="agb">
 									<label class="lcheckbox" for="agb">Ich stimme den <a href="agb.html">AGB</a> und Datenschutzbestimmungen zu.</label>
+									<div style="display:none; color:red" id="agb_check_err">
+										Bitte stimmmen Sie den AGBs zu
+									</div>
 								</div>
 								<div class="tabular_row">
-									<input type="checkbox" name="2Gcontrol">
+									<input type="checkbox" id="2Gcontrol" name="2Gcontrol">
 									<label class="lcheckbox" for="2Gcontrol">Ich stimme einer 2G+ Kontrolle vor Einlass zu.</label><br>
+									<div style="display:none; color:red" id="2G_check_err">
+										Bitte stimmen Sie der 2G+ Kontrolle zu
+									</div>
 								</div>
 							</div>
 							<button type="reset">Abbrechen</button>

@@ -36,3 +36,8 @@
 	max-height: inherit;
 	overflow-x: auto;
 }
+
+form .error {
+	color: red;
+	text-size-adjust: auto;
+}

@@ -16,85 +16,402 @@
 		<script src="js/jcanvas.min.js"></script>
 		<script>
 			var roomdata = {
-				"areawidth": 800,
-				"areaheight": 400,
+				"areawidth": 900,
+				"areaheight": 700,
 				"sections": [
 					{
-						"id": 0,
 						"name": "Aussenbereich",
 						"outline": {
-							"x1": 10, "y1": 10,
-							"x2": 10, "y2": 200,
-							"x3": 500, "y3": 200,
-							"x4": 500, "y4": 10
+							"x1": 30, "y1": 480,
 						},
-						"features": [
-							{
-								"type": "door",
-								"x1": 10,
-								"y1": 30,
-								"x2": 10,
-								"y2": 50,
-								"isWC": false
-							},
-							{
-								"type": "door",
-								"x1": 500,
-								"y1": 50,
-								"x2": 500,
-								"y2": 30,
-								"isWC": false
-							},
-							{
-								"type": "door",
-								"x1": 30,
-								"y1": 10,
-								"x2": 50,
-								"y2": 10,
-								"isWC": false
-							},
-							{
-								"type": "door",
-								"x1": 50,
-								"y1": 200,
-								"x2": 30,
-								"y2": 200,
-								"isWC": false
-							},
-							{
-								"type": "window",
-								"x1": 100,
-								"y1": 10,
-								"x2": 300,
-								"y2": 10,
-							}
-						],
+						"features": [],
 						"tables": [
 							{
-								"x": 100,
-								"y": 100,
-								"seatsX": 3,
-								"seatsY": 2,
+								"x": 45,
+								"y": 500,
+								"seatsX": 1,
+								"seatsY": 0,
 								"isAccessible": true,
 								"joins": []
 							},
 							{
-								"x": 500,
-								"y": 30,
+								"x": 45,
+								"y": 600,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 165,
+								"y": 500,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 165,
+								"y": 600,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 265,
+								"y": 470,
 								"seatsX": 0,
 								"seatsY": 2,
 								"isAccessible": true,
 								"joins": []
 							},
 							{
-								"x": 50,
-								"y": 50,
+								"x": 265,
+								"y": 600,
+								"seatsX": 0,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 365,
+								"y": 470,
+								"seatsX": 0,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 365,
+								"y": 600,
+								"seatsX": 0,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 465,
+								"y": 500,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 465,
+								"y": 600,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 765,
+								"y": 470,
+								"seatsX": 0,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 765,
+								"y": 600,
+								"seatsX": 0,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+						],
+						"tablejoins": [],
+					},
+					{
+						"name": "Innenbereich",
+						"outline": {
+							"x1": 350, "y1": 30,
+							"x2": 870, "y2": 30,
+							"x3": 870, "y3": 430,
+							"x4": 350, "y4": 430
+						},
+						"features": [
+							{
+								"type": "door",
+								"x1": 380,
+								"y1": 30,
+								"x2": 410,
+								"y2": 30,
+								"isWC": false
+							},
+							{
+								"type": "door",
+								"x1": 810,
+								"y1": 30,
+								"x2": 840,
+								"y2": 30,
+								"isWC": true
+							},
+							{
+								"type": "door",
+								"x1": 595,
+								"y1": 430,
+								"x2": 625,
+								"y2": 430,
+								"isWC": false
+							},
+							{
+								"type": "door",
+								"x1": 350,
+								"y1": 95,
+								"x2": 350,
+								"y2": 125,
+								"isWC": false
+							}
+						],
+						"tables": [
+							{
+								"x": 350,
+								"y": 290,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 350,
+								"y": 190,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 440,
+								"y": 290,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 440,
+								"y": 190,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 720,
+								"y": 290,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 720,
+								"y": 190,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 810,
+								"y": 290,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 810,
+								"y": 190,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 420,
+								"y": 400,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 510,
+								"y": 400,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 700,
+								"y": 400,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 790,
+								"y": 400,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+						],
+						"tablejoins": [],
+					},
+					{
+						"name": "Wintergarten",
+						"outline": {
+							"x1": 30, "y1": 30,
+							"x2": 350, "y2": 30,
+							"x3": 350, "y3": 430,
+							"x4": 30, "y4": 430
+						},
+						"features": [
+							{
+								"type": "door",
+								"x1": 350,
+								"y1": 95,
+								"x2": 350,
+								"y2": 125,
+								"isWC": false
+							},
+							{
+								"type": "door",
+								"x1": 100,
+								"y1": 430,
+								"x2": 130,
+								"y2": 430,
+								"isWC": false
+							},
+							{
+								"type": "window",
+								"x1": 50,
+								"y1": 30,
+								"x2": 330,
+								"y2": 30,
+							},
+							{
+								"type": "window",
+								"x1": 30,
+								"y1": 50,
+								"x2": 30,
+								"y2": 420,
+							}
+						],
+						"tables": [
+							{
+								"x": 190,
+								"y": 400,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 280,
+								"y": 400,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 60,
+								"y": 30,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 135,
+								"y": 30,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 205,
+								"y": 30,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 280,
+								"y": 30,
+								"seatsX": 0,
+								"seatsY": 1,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 30,
+								"y": 120,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 30,
+								"y": 225,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 30,
+								"y": 330,
+								"seatsX": 1,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 290,
+								"y": 290,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": false,
+								"joins": []
+							},
+							{
+								"x": 180,
+								"y": 190,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 180,
+								"y": 290,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 290,
+								"y": 190,
 								"seatsX": 2,
 								"seatsY": 0,
 								"isAccessible": false,
 								"joins": []
 							}
-							
 						],
 						"tablejoins": [],
 					}
@@ -102,22 +419,27 @@
 			}
 			/* https://www.youtube.com/watch?v=SETnK2ny1R0 */
 			class roomplan{
-				constructor(canvas, roomdata){
+				constructor(canvas, roomdata, interactive=false){
 					
 					this.canvas = canvas;
 					this.roomdata = roomdata;
+					this.interactive = interactive;
+					
 					this.fontFamily = 'Verdana, sans-serif';
-
 					
 					this.outlineWidth = 2;
-					this.tableBasis = 20;
+					this.tableBasis = 30;
 					this.fontSize = 16;
 					
 					this.outlineColor = '#fff';
 					this.doorColor = '#ff0';
 					this.windowColor = '#03f';
 					this.tableColor = '#422';
+					this.tableColorHover = '#746';
 					this.seatColor = '#633';
+					this.seatColorHover = '#959';
+					
+					this.clickCallback = undefined;
 					
 					canvas.attr(
 						"width", roomdata.areawidth
@@ -143,7 +465,7 @@
 							name: 'sn'+si,
 							groups: ['t', 's'+si],
 							fillStyle: this.outlineColor,
-							x: val.outline.x1 + 20, y: val.outline.y1 + 20,
+							x: val.outline.x1 + 20, y: val.outline.y1 -20,
 							fontSize: this.fontSize,
 							fontFamily: this.fontFamily,
 							text: val.name,
@@ -164,6 +486,19 @@
 										x2: val.x2,
 										y2: val.y2,
 									});
+									if(val.isWC){
+										this.canvas.drawText({
+											layer: true,
+											name: 'dw'+fi,
+											groups: ['d', 's'+si],
+											fillStyle: this.outlineColor,
+											x: val.x1 + 20, y: val.y1 -20,
+											fontSize: this.fontSize,
+											fontFamily: this.fontFamily,
+											text: "WC",
+											fromCenter: false
+										});
+									}
 									break;
 								case "window":
 									this.canvas.drawLine({
@@ -194,7 +529,8 @@
 								y: val.y,
 								width: tableWidth,
 								height: tableHeight,
-								fromCenter: false
+								fromCenter: false,
+								data: {si: si, ti: ti}
 							});
 							//accessibility icon
 							if(val.isAccessible){
@@ -251,7 +587,10 @@
 										y: val.y + i*this.tableBasis + 0.15*this.tableBasis,
 										width: 0.25*this.tableBasis,
 										height: this.tableBasis - 0.3*this.tableBasis,
-										fromCenter: false
+										fromCenter: false,
+										data: {si: si, ti: ti},
+										mouseover: this.tableMouseover.bind(this),
+										mouseout: this.tableMouseout.bind(this)
 									});
 									//right
 									this.canvas.drawRect({
@@ -263,15 +602,72 @@
 										y: val.y + i*this.tableBasis + 0.15*this.tableBasis,
 										width: 0.25*this.tableBasis,
 										height: this.tableBasis - 0.3*this.tableBasis,
-										fromCenter: false
+										fromCenter: false,
+										data: {si: si, ti: ti},
+										mouseover: this.tableMouseover.bind(this),
+										mouseout: this.tableMouseout.bind(this)
 									});
 								}
 							}
+							//drawMouseTarget
+							this.canvas.drawRect({
+								layer: true,
+								name: 'm'+si+'.'+ti,
+								groups: ['m', 't'+si+'.'+ti, 's'+si],
+								fillStyle: 'rgba(0,0,0,0)',
+								x: (val.seatsY>0)?val.x - 0.25*this.tableBasis:val.x,
+								y: (val.seatsX>0)?val.y - 0.25*this.tableBasis:val.y,
+								width: (val.seatsY>0)?tableWidth + 0.5*this.tableBasis:tableWidth,
+								height: (val.seatsX>0)?tableHeight + 0.5*this.tableBasis:tableHeight,
+								fromCenter: false,
+								data: {si: si, ti: ti},
+								mouseover: this.tableMouseover.bind(this),
+								mouseout: this.tableMouseout.bind(this),
+								click: this.tableClick.bind(this)
+							});
 						}, this);
 					}, this);
 					
 				}
-			}
+				
+				tableMouseover(layer){
+					if(this.interactive){
+						let layers = this.canvas.getLayerGroup('t'+layer.data.si+'.'+layer.data.ti);
+						let base = layers.filter(function(val, i, a){return val.name[0] === 't'});
+						let chairs = layers.filter(function(val, i, a){return val.name[0] === 'c'});
+						
+						this.canvas.animateLayer(base[0], {fillStyle: this.tableColorHover}, 250);
+						chairs.forEach(function(val, i, a){this.canvas.animateLayer(val, {fillStyle: this.seatColorHover},250)}, this);
+						this.canvas.css("cursor", "pointer");
+					}
+				}
+				
+				tableMouseout(layer){
+					if(this.interactive){
+						let layers = this.canvas.getLayerGroup('t'+layer.data.si+'.'+layer.data.ti);
+						let base = layers.filter(function(val, i, a){return val.name[0] === 't'});
+						let chairs = layers.filter(function(val, i, a){return val.name[0] === 'c'});
+						
+						this.canvas.animateLayer(base[0], {fillStyle: this.tableColor}, 250);
+						chairs.forEach(function(val, i, a){this.canvas.animateLayer(val, {fillStyle: this.seatColor},250)}, this);
+						this.canvas.css("cursor", "initial");
+					}
+				}
+				
+				tableClick(layer){
+					if(this.interactive){
+						if(this.clickCallback){
+							this.clickCallback(layer.data.si, layer.data.ti);
+						}
+					}
+				}
+				
+				setClickCallback(f){
+					this.clickCallback = f;
+				}
+				
+				
+			};
 			$(document).ready(function(){
 				let r = new roomplan($("#roomplan"), roomdata);
 			});

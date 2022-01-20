@@ -450,6 +450,17 @@
 					$("#reservation_form input[name=\"table\"]").attr("value", ti);
 					$("#roomplan_overlay").removeClass("active");
 					$("#table_selected").html("Tisch: " + (si+1) + (ti+1));
+					switch(si){
+						case 0:
+							$("#area").val("outdoor").change();
+						break;
+						case 1:
+							$("#area").val("indoor").change();
+						break;
+						case 2:
+							$("#area").val("garden").change();
+						break;
+					}
 				});
 			});
 		</script>
@@ -467,7 +478,12 @@
 					} else {
         				$("#2G_check_err").hide();
 					}
-    				return false;
+					
+					if(!$("#2Gcontrol").prop("checked") || !$("#agb").prop("checked")){
+						return false;
+					}
+					return true;
+    				
 				});
 
                 $("#reservation_form").validate({

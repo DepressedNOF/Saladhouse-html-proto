@@ -15,42 +15,267 @@
 		<!-- ADDITIONAL SCRIPTS GO BETWEEN -->
 		<script src="js/jcanvas.min.js"></script>
 		<script>
-			/*var roomdata = {
-				"areawidth": 600,
-				"areaheight": 800,
+			var roomdata = {
+				"areawidth": 800,
+				"areaheight": 400,
 				"sections": [
 					{
 						"id": 0,
 						"name": "Aussenbereich",
-						"outline": [],
+						"outline": {
+							"x1": 10, "y1": 10,
+							"x2": 10, "y2": 200,
+							"x3": 500, "y3": 200,
+							"x4": 500, "y4": 10
+						},
 						"features": [
 							{
 								"type": "door",
-								"direction": 0,
-								"x": 0,
-								"y": 0,
+								"x1": 10,
+								"y1": 30,
+								"x2": 10,
+								"y2": 50,
 								"isWC": false
 							},
 							{
-								"type": "window"
+								"type": "door",
+								"x1": 500,
+								"y1": 50,
+								"x2": 500,
+								"y2": 30,
+								"isWC": false
+							},
+							{
+								"type": "door",
+								"x1": 30,
+								"y1": 10,
+								"x2": 50,
+								"y2": 10,
+								"isWC": false
+							},
+							{
+								"type": "door",
+								"x1": 50,
+								"y1": 200,
+								"x2": 30,
+								"y2": 200,
+								"isWC": false
+							},
+							{
+								"type": "window",
+								"x1": 100,
+								"y1": 10,
+								"x2": 300,
+								"y2": 10,
 							}
 						],
 						"tables": [
 							{
-								"x": 0,
-								"y": 0,
-								"seatsx": 2,
-								"seatsy": 0,
+								"x": 100,
+								"y": 100,
+								"seatsX": 3,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 500,
+								"y": 30,
+								"seatsX": 0,
+								"seatsY": 2,
+								"isAccessible": true,
+								"joins": []
+							},
+							{
+								"x": 50,
+								"y": 50,
+								"seatsX": 2,
+								"seatsY": 0,
+								"isAccessible": false,
 								"joins": []
 							}
+							
 						],
 						"tablejoins": [],
 					}
 				]
 			}
-			$("#roomplan").width(roomdata["areawidth"]).height(roomdata["areaheight"]);
-			*/
-		</script>
+			/* https://www.youtube.com/watch?v=SETnK2ny1R0 */
+			class roomplan{
+				constructor(canvas, roomdata){
+					
+					this.canvas = canvas;
+					this.roomdata = roomdata;
+					this.fontFamily = 'Verdana, sans-serif';
+
+					
+					this.outlineWidth = 2;
+					this.tableBasis = 20;
+					this.fontSize = 16;
+					
+					this.outlineColor = '#fff';
+					this.doorColor = '#ff0';
+					this.windowColor = '#03f';
+					this.tableColor = '#422';
+					this.seatColor = '#633';
+					
+					canvas.attr(
+						"width", roomdata.areawidth
+					).attr(
+						"height", roomdata.areaheight
+					);
+					
+					roomdata.sections.forEach(function(val, si, sa){
+						if(val.outline.x2){
+							//only if there are atleast two points for the outline
+							this.canvas.drawLine({
+								layer: true,
+								name: 'o'+si,
+								groups: ['o', 's'+si],
+								strokeStyle: this.outlineColor,
+								strokeWidth: this.outlineWidth,
+								...val.outline,
+								closed: true
+							});
+						}
+						this.canvas.drawText({
+							layer: true,
+							name: 'sn'+si,
+							groups: ['t', 's'+si],
+							fillStyle: this.outlineColor,
+							x: val.outline.x1 + 20, y: val.outline.y1 + 20,
+							fontSize: this.fontSize,
+							fontFamily: this.fontFamily,
+							text: val.name,
+							fromCenter: false
+						});
+						
+						val.features.forEach(function(val, fi, fa){
+							switch(val.type){
+								case "door": 
+									this.canvas.drawLine({
+										layer: true,
+										name: 'd'+si+'.'+fi,
+										groups: ['f','d', 's'+si],
+										strokeStyle: this.doorColor,
+										strokeWidth: this.outlineWidth+2,
+										x1: val.x1,
+										y1: val.y1,
+										x2: val.x2,
+										y2: val.y2,
+									});
+									break;
+								case "window":
+									this.canvas.drawLine({
+										layer: true,
+										name: 'w'+si+'.'+fi,
+										groups: ['f','w', 's'+si],
+										strokeStyle: this.windowColor,
+										strokeWidth: this.outlineWidth+2,
+										x1: val.x1,
+										y1: val.y1,
+										x2: val.x2,
+										y2: val.y2,
+									});
+									break;
+							}
+						}, this);
+						
+						val.tables.forEach(function(val, ti, ta){
+							let tableWidth = (val.seatsX>0) ? this.tableBasis * val.seatsX : this.tableBasis;
+							let tableHeight = (val.seatsY>0) ? this.tableBasis * val.seatsY : this.tableBasis;
+							//table base
+							this.canvas.drawRect({
+								layer: true,
+								name: 't'+si+'.'+ti,
+								groups: ['t', 't'+si+'.'+ti, 's'+si],
+								fillStyle: this.tableColor,
+								x: val.x,
+								y: val.y,
+								width: tableWidth,
+								height: tableHeight,
+								fromCenter: false
+							});
+							//accessibility icon
+							if(val.isAccessible){
+								this.canvas.drawImage({
+									layer: true,
+									name: 'i'+si+'.'+ti,
+									groups: ['i', 't'+si+'.'+ti, 's'+si],
+									source: 'img/style/common/wheelchair_accessible_icon_wob.svg',
+									x: val.x + 0.5*tableWidth,
+									y: val.y + 0.5*tableHeight,
+									width: this.tableBasis-2,
+									height: this.tableBasis-2
+								});
+							}
+							//seats
+							if(val.seatsX){
+								for(var i=0; i<val.seatsX; i++){
+									//top
+									this.canvas.drawRect({
+										layer: true,
+										name: 'c'+si+'.'+ti+'.t'+i,
+										groups: ['c', 't'+si+'.'+ti, 's'+si],
+										fillStyle: this.seatColor,
+										x: val.x + i*this.tableBasis + 0.15*this.tableBasis,
+										y: val.y - 0.25*this.tableBasis,
+										width: this.tableBasis - 0.3*this.tableBasis,
+										height: 0.25*this.tableBasis,
+										fromCenter: false
+									});
+									//bottom
+									this.canvas.drawRect({
+										layer: true,
+										name: 'c'+si+'.'+ti+'.b'+i,
+										groups: ['c', 't'+si+'.'+ti, 's'+si],
+										fillStyle: this.seatColor,
+										x: val.x + i*this.tableBasis + 0.15*this.tableBasis,
+										y: val.y + tableHeight,
+										width: this.tableBasis - 0.3*this.tableBasis,
+										height: 0.25*this.tableBasis,
+										fromCenter: false
+									});
+								}
+							}
+							
+							if(val.seatsY){
+								for(var i=0; i<val.seatsY; i++){
+									//left
+									this.canvas.drawRect({
+										layer: true,
+										name: 'c'+si+'.'+ti+'.l'+i,
+										groups: ['c', 't'+si+'.'+ti, 's'+si],
+										fillStyle: this.seatColor,
+										x: val.x - 0.25*this.tableBasis,
+										y: val.y + i*this.tableBasis + 0.15*this.tableBasis,
+										width: 0.25*this.tableBasis,
+										height: this.tableBasis - 0.3*this.tableBasis,
+										fromCenter: false
+									});
+									//right
+									this.canvas.drawRect({
+										layer: true,
+										name: 'c'+si+'.'+ti+'.r'+i,
+										groups: ['c', 't'+si+'.'+ti, 's'+si],
+										fillStyle: this.seatColor,
+										x: val.x + tableWidth,
+										y: val.y + i*this.tableBasis + 0.15*this.tableBasis,
+										width: 0.25*this.tableBasis,
+										height: this.tableBasis - 0.3*this.tableBasis,
+										fromCenter: false
+									});
+								}
+							}
+						}, this);
+					}, this);
+					
+				}
+			}
+			$(document).ready(function(){
+				let r = new roomplan($("#roomplan"), roomdata);
+			});
+			</script>
 		<!-- /ADDITIONAL SCRIPTS GO BETWEEN -->
 	</head>
 	<body>
@@ -68,7 +293,7 @@
 				<div id="content">
 					<!--EDIT CONTENT-->
 					<div class="image_container">
-						<img src="img/content/restaurant/roomplan.png">
+						<canvas id="roomplan" width="200" height="200"></canvas>
 					</div>
 					<!--/EDIT CONTENT-->
 				</div>
